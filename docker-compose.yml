@@ -15,6 +15,7 @@ services:
     # Mount local directories as volumes inside the container:
     volumes:
       - "ssh-keys:/root/.ssh"
+      - "./share/:/home/capacita/"
     build:
       context: .
       dockerfile: ./docker/Dockerfile

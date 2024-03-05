@@ -6,22 +6,19 @@
 version: '3.8'
 services:
 
-   # FTP Server Container
-  ftpserver:
-    container_name: ftpserver
+   # SSH Server Container for SCP
+  sshserver:
+    container_name: sshserver
     # Map container ports 8080 and 8081.
     ports:
-      - '20:20' # FTP Control Connection Port
-      - '21:21' # FTP Data Connection Port
+      - '2222:22' # SSH connection port. 
     # Mount local directories as volumes inside the container:
     volumes:
-      - "./share/:/data/ftp/"
+      - "ssh-keys:/root/.ssh"
     build:
       context: .
       dockerfile: ./docker/Dockerfile
-    environment:
-      - FTP_USER=capacita
-      - FTP_PASSWORD=capacita
-      - FTP_UID=1000
-      - FTP_GID=1000
-      - FTP_PATH=/data/ftp/
+
+volumes:
+  ssh-keys:
+

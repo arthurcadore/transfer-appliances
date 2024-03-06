@@ -18,5 +18,9 @@ RUN ssh-keygen -A
 RUN adduser -D capacita
 RUN echo "capacita:capacitapass" | chpasswd
 
+COPY docker/startup.sh /usr/sbin/startup.sh
+
+RUN chmod +x /usr/sbin/startup.sh
+
 # Start SSH server and keep container running
-CMD ["/usr/sbin/sshd", "-D", "&&", "tail", "-f", "/dev/null"]
+CMD ["/usr/sbin/startup.sh"]

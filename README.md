@@ -1,4 +1,4 @@
-# Appliances for Transfer Protocols Servers
+# Appliances for Transfer Application Protocols 
 
 ### This repository is dedicated to simple transfer procotol appliances like FTP, SFTP, SCP and TFTP. Each repository branch has one different protocol appliance. 
 
